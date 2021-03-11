@@ -11,7 +11,6 @@ param (
   [Parameter()]
   [int]$ProductId = 1,
 
-
   [Parameter()]
   [string]$PlanFileName = 'terraformPlanOutput.bin'
 )
