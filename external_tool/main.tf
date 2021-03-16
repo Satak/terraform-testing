@@ -2,8 +2,8 @@ variable "tool" {
   type    = string
   default = "python"
   validation {
-    condition     = contains(["pwsh", "python"], var.tool)
-    error_message = "Argument <tool> must be either <pwsh> or <python>."
+    condition     = contains(["powershell", "python"], var.tool)
+    error_message = "Argument <tool> must be either <powershell> or <python>."
   }
 }
 
@@ -30,7 +30,7 @@ variable "usd_rate" {
 locals {
   program = {
     "python" : "py"
-    "pwsh" : "ps1"
+    "powershell" : "ps1"
   }
 }
 
