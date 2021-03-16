@@ -1,0 +1,32 @@
+name: Terraform Check
+on: [push]
+jobs:
+  terraform_check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./external_tool
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+      - uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: false
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -var="client_id=${{ secrets.CLIENT_ID }}"
+        continue-on-error: false
