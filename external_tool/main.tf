@@ -27,11 +27,22 @@ variable "usd_rate" {
   default     = "1"
 }
 
+variable "env_id" {
+  type        = string
+  description = "Environment"
+  default     = "dev"
+  validation {
+    condition     = contains(["dev", "test", "prod"], var.env_id)
+    error_message = "Argument 'env_id' must be either 'dev', 'test' or 'prod'."
+  }
+}
+
 locals {
   program = {
     "python" : "py"
     "powershell" : "ps1"
   }
+  rg = trimspace(templatefile("${path.module}/rg_template.tpl", { env_id = var.env_id, suffix = "core-network" }))
 }
 
 data "external" "my_data" {
@@ -52,4 +63,8 @@ data "external" "my_data" {
 
 output "data_from_external" {
   value = data.external.my_data.result.output
+}
+
+output "resource_name" {
+  value = local.rg
 }
