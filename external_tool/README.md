@@ -29,7 +29,7 @@ output "data_from_external" {
 
 Python script gets data from the local `db.json` file by the input variable `product_id`.
 
-## Powershell (`pwsh`)
+## Powershell
 
 Powershell script fetches data from `https://api.exchangeratesapi.io` API and gets the conversion rate between USD and EUR. Input variable `usd_rate`.
 
@@ -41,6 +41,6 @@ terraform plan -var="tool=python" -var="product_id=3"
 # -> data_from_external = "Coffee"
 
 # powershell: fetches rate (api call) between USD and EUR by input param usd_rate
-terraform plan -var="tool=pwsh" -var="usd_rate=500"
+terraform plan -var="tool=powershell" -var="usd_rate=500"
 # -> data_from_external = "420 EUR"
 ```
