@@ -1,5 +1,5 @@
 # Terraform testing
 
-[![Terraform Status](https://github.com/satak/terraform-testing/workflows/Terraform/badge.svg)](https://github.com/satak/terraform-testing/actions)
+[![Terraform](https://github.com/Satak/terraform-testing/actions/workflows/terraform_check.yaml/badge.svg)](https://github.com/Satak/terraform-testing/actions/workflows/terraform_check.yaml)
 
 Testing some Terraform stuff...
