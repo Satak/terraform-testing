@@ -8,7 +8,7 @@ variable "tool" {
 }
 
 variable "client_id" {
-  type = string
+type = string
   validation {
     condition     = can(regex("^[[:alnum:]]{8}(-[[:alnum:]]{4}){3}-[[:alnum:]]{12}$", var.client_id))
     error_message = "Must be an UUID (12345678-1234-1234-1234-123456789ABC)."
