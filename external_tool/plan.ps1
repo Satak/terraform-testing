@@ -2,8 +2,8 @@
 param (
 
   [Parameter()]
-  [ValidateSet("powershell", "python")]
-  [string]$Tool = 'powershell',
+  [ValidateSet("pwsh", "python")]
+  [string]$Tool = 'pwsh',
 
   [Parameter()]
   [int]$USD = 1,
